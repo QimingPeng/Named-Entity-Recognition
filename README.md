@@ -1,4 +1,4 @@
-# Sequence-Tagging
+# Named Entity Recognition
 
 中文命名实体识别
 
