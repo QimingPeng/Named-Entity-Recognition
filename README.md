@@ -10,8 +10,8 @@
 快速训练 + 交叉验证 + 测试，具体参数设定见main.py文件
 ````
 python main.py -model_name BiLSTM or BiLSTM-CRF \
-                -do_train True
-                -do_cv True
+                -do_train True \
+                -do_cv True \
                 -do_test True
 ````
 
