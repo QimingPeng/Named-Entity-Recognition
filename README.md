@@ -3,6 +3,7 @@
 中文命名实体识别
 
 数据集：https://github.com/SophonPlus/ChineseNlpCorpus (中文命名实体识别数据集，下载后放在 data 文件夹中)
+
 所用字向量：https://github.com/SophonPlus/ChineseWordVectors (polyglot_wiki 字向量，解压后放在 data 文件夹中)
 
 ## Train and Test
