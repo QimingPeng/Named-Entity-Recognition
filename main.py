@@ -1,9 +1,8 @@
-import argparse
-import random
-import torch
-import logging
 import os
-
+import torch
+import random
+import logging
+import argparse
 import numpy as np
 
 from itertools import cycle

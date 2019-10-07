@@ -1,8 +1,8 @@
-import torch
-import torch.optim as optim
-import numpy as np
-import logging
 import os
+import torch
+import logging
+import numpy as np
+import torch.optim as optim
 from utils import WarmupLinearSchedule, entity_recover, metric
 
 def train_eval(train_dataloader, dev_dataloader, dev_entity_list, model, id2tag, 
@@ -21,7 +21,6 @@ def train_eval(train_dataloader, dev_dataloader, dev_entity_list, model, id2tag,
     best_step = 0
     best_F1 = 0
     train_loss = 0
-    global_step = 0
     bar = range(train_steps)
     for step in bar:
         batch = next(train_dataloader)
@@ -62,7 +61,7 @@ def train_eval(train_dataloader, dev_dataloader, dev_entity_list, model, id2tag,
             logging.info("P: {:.4f}, R: {:.4f}, F1: {:.4f}, Best_f1: {:.4f}\n".format(P, R, F1, best_F1))
 
         if step + 1 - best_step > 5000:
-            logging.info("Early stopped at Step: {}, Best_dev_f1: {}\n".format(global_step, best_F1))
+            logging.info("Early stopped at Step: {}, Best_dev_f1: {}\n".format(step + 1, best_F1))
             break
     return best_F1
 
