@@ -109,7 +109,7 @@ def load_embeddings(embed_path, extra_token_dict):
         words.append(unk_token)
         unk_tensor = torch.randn(1, embed_dim)
         embeddings = torch.cat((embeddings, unk_tensor), dim=0)
-        print(unk_tensor)
+
     if pad_token not in words:
         words.append(pad_token)
         pad_tensor = torch.zeros(1, embed_dim)
