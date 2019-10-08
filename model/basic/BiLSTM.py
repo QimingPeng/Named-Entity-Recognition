@@ -24,13 +24,11 @@ class BiLSTM(nn.Module):
                                 batch_first=batch_first,
                                 bidirectional=True)
         self.dropout = nn.Dropout(0.2)
-        # self.fc = nn.Linear(2*hidden_size, out_size)
 
     def forward(self, seq_embed, lengths):
         seq_embed = self.dropout(seq_embed)
-        total_length = seq_embed.size()[1]
+        total_length = seq_embed.size(1)
         packed = pack_padded_sequence(seq_embed, lengths, batch_first=True, enforce_sorted=False)
         packed_output, (hidden, _) = self.bilstm(packed)
         output, _ = pad_packed_sequence(packed_output, batch_first=True, total_length=total_length)
-        # scores = self.fc(output)  # [B, L, out_size]
         return output, hidden
